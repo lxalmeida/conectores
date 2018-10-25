@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+tbody tr.correto {
+    background: #c6ebff;
+    color: black;
+}
+
+tbody tr.incorreto {
+    background: #ffc6cf;
+    color: black;
+}
+
+.conector {
+    font-size: 30pt;
+    font-family: sans-serif;
+}
