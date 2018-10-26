@@ -239,7 +239,7 @@ function responder() {
         tr.classList.add('incorreto');
         numeroErros++;
         document.getElementById('numeroErros').innerHTML = numeroErros;
-        apresentaAlertaErro("Resposta incorreta. Deveria ser: " + tiposSorteado.join(', '));
+        apresentaAlertaErro("Resposta incorreta.<br/>Deveria ser: " + tiposSorteado.join(', '));
     }
 
     tbodyRespostas.appendChild(tr);
