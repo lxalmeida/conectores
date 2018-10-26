@@ -175,13 +175,6 @@ function buscaTipos(conector) {
 
 function inicializaSelecaoDeTipos() {
     let selectTiposConectores = document.getElementById('tipoConector');
-
-    let optionInicial = document.createElement('option');
-    optionInicial.value = '';
-    optionInicial.innerHTML = '';
-    optionInicial.selected = true;
-    selectTiposConectores.appendChild(optionInicial);
-
     let grupoCoordenacao = document.createElement('optgroup');
     grupoCoordenacao.label = 'Coordenação';
     selectTiposConectores.appendChild(grupoCoordenacao);
@@ -241,10 +234,12 @@ function responder() {
         tr.classList.add('correto');
         numeroAcertos++;
         document.getElementById('numeroAcertos').innerHTML = numeroAcertos;
+        apresentaAlertaAcerto("Resposta correta!");
     } else {
         tr.classList.add('incorreto');
         numeroErros++;
         document.getElementById('numeroErros').innerHTML = numeroErros;
+        apresentaAlertaErro("Resposta incorreta. Deveria ser: " + tiposSorteado.join(', '));
     }
 
     tbodyRespostas.appendChild(tr);
@@ -262,4 +257,23 @@ function adicionaColunaTabelaResposta(tr, valor) {
     let td = document.createElement('td');
     td.innerHTML = valor;
     tr.appendChild(td);
+}
+
+function apresentaAlertaAcerto(mensagem) {
+    apresentaAlerta(mensagem, 'alert-success');
+}
+
+function apresentaAlertaErro(mensagem) {
+    apresentaAlerta(mensagem, 'alert-danger');
+}
+
+function apresentaAlerta(mensagem, classe) {
+    let spanMensagem = document.getElementById('alerta');
+    spanMensagem.innerHTML = '';
+    let divMensagem = document.createElement('div');
+    divMensagem.classList.add('alert');
+    divMensagem.classList.add(classe);
+    divMensagem.innerHTML = mensagem;
+    divMensagem.role = 'alert';
+    spanMensagem.appendChild(divMensagem);
 }

@@ -9,13 +9,13 @@
     </head>
     <body>
         <div class="container-fluid">
-            <h1><div id="conector"></div></h1>
+            <div class="sticky-top" id="alerta"></div>
+
+            <h1><div id="conector" style="padding-bottom: 10px;" class="d-flex align-items-center justify-content-center"></div></h1>
             <div id="tipos">
-                <select id="tipoConector" style="width: 150px;">
+                <select size="16" id="tipoConector" class="custom-select" onchange="responder_e_sortear();">
                 </select>
             </div>
-            <input type="button" value="Responder e Sortear" onclick="responder_e_sortear();"
-                style="height: 100px;" class="btn btn-primary btn-lg" />
 
             <p>Acertos: <span id="numeroAcertos">0</span></p>
             <p>Erros: <span id="numeroErros">0</span></p>
