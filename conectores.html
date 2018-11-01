@@ -12,9 +12,46 @@
             <span class="fixed-top" id="alerta"></span>
 
             <h1><div id="conector" style="padding-top: 70px; padding-bottom: 10px;" class="d-flex align-items-center justify-content-center"></div></h1>
-            <div id="tipos">
-                <select size="16" id="tipoConector" class="custom-select" onchange="responder_e_sortear();">
-                </select>
+
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Aditivos')" type="button" class="btn btn-primary">Aditivos</button>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Adversativos')" type="button" class="btn btn-primary">Adversativos</button></div>
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Alternativos')" type="button" class="btn btn-primary">Alternativos</button></div>
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Conclusivos')" type="button" class="btn btn-primary">Conclusivos</button></div>
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Explicativos')" type="button" class="btn btn-primary">Explicativos</button></div>
+            </div>
+
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Causais')" type="button" class="btn btn-info">Causais</button></div>
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Consecutivos')" type="button" class="btn btn-info">Consecutivos</button></div>
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Concessivos')" type="button" class="btn btn-info">Concessivos</button></div>
+            </div>
+
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Condicionais')" type="button" class="btn btn-info">Condicionais</button></div>
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Comparativos')" type="button" class="btn btn-info">Comparativos</button></div>
+                <div class="p-2 bd-highlight">
+                        <button onclick="responder_e_sortear('Conformativos')" type="button" class="btn btn-info">Conformativos</button></div>
+            </div>
+
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Temporais')" type="button" class="btn btn-info">Temporais</button></div>
+                <div class="p-2 bd-highlight">
+                    <button onclick="responder_e_sortear('Proporcionais')" type="button" class="btn btn-info">Proporcionais</button></div>
+                <div class="p-2 bd-highlight">
+                        <button onclick="responder_e_sortear('Finais')" type="button" class="btn btn-info">Finais</button></div>
             </div>
 
             <p>Acertos: <span id="numeroAcertos">0</span></p>

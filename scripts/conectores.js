@@ -143,8 +143,6 @@ function inicializa() {
     }
 
     inicializaMapaInverso();
-
-    inicializaSelecaoDeTipos();
 }
 
 function inicializaMapaInverso() {
@@ -173,35 +171,8 @@ function buscaTipos(conector) {
     return tiposDoConector;
 }
 
-function inicializaSelecaoDeTipos() {
-    let selectTiposConectores = document.getElementById('tipoConector');
-    let grupoCoordenacao = document.createElement('optgroup');
-    grupoCoordenacao.label = 'Coordenação';
-    selectTiposConectores.appendChild(grupoCoordenacao);
-    for(let tipo in coordenacao) {
-        let option = document.createElement('option');
-        option.value = tipo;
-        option.innerHTML = tipo;
-        grupoCoordenacao.appendChild(option);
-    }
-
-    let grupoSubordinacao = document.createElement('optgroup');
-    grupoSubordinacao.label = 'Subordinação';
-    selectTiposConectores.appendChild(grupoSubordinacao);
-    for(let tipo in subordinacao) {
-        let option = document.createElement('option');
-        option.value = tipo;
-        option.innerHTML = tipo;
-        grupoSubordinacao.appendChild(option);
-    }
-}
-
-function responder_e_sortear() {
-    if(document.getElementById('tipoConector').value == '') {
-        return;
-    }
-
-    responder();
+function responder_e_sortear(resposta) {
+    responder(resposta);
     sortear_conector();
 }
 
@@ -219,12 +190,11 @@ function sortear_conector() {
     conectores.splice(indice, 1);
 }
 
-function responder() {
+function responder(resposta) {
     if(conectorSorteado == null) {
         return;
     }
 
-    let resposta = document.getElementById('tipoConector').value;
     let tbodyRespostas = document.getElementById('tbodyRespostas');
 
     let tr = document.createElement('tr');
@@ -239,7 +209,7 @@ function responder() {
         tr.classList.add('incorreto');
         numeroErros++;
         document.getElementById('numeroErros').innerHTML = numeroErros;
-        apresentaAlertaErro("Resposta incorreta.<br/>Deveria ser: " + tiposSorteado.join(', '));
+        apresentaAlertaErro("Resposta incorreta. Deveria ser: " + tiposSorteado.join(', '));
     }
 
     tbodyRespostas.appendChild(tr);
@@ -250,7 +220,6 @@ function responder() {
 
     conectorSorteado = null;
     tiposSorteado = null;
-    document.getElementById('tipoConector').value = '';
 }
 
 function adicionaColunaTabelaResposta(tr, valor) {
